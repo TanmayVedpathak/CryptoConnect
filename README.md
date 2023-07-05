@@ -41,7 +41,9 @@ Now, you can run the app in the development mode. :
 yarn dev
 ```
 
-And then open http://localhost:3000 to view it in the browser.
+Runs the app in development mode. Open https://localhost:5173 to view it in the browser.
+
+The page will automatically reload if you make changes to the code. You will see the build errors and lint warnings in the console.
 
 #### Available Scripts
 
