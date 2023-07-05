@@ -1,0 +1,127 @@
+.cryptoDetails-conatiner {
+    background-color: var(--bgPrimary);
+}
+
+.detailsHeader {
+    text-align: center;
+    margin-top: 50px;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+}
+
+.detailsHeader h1 {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.detailsHeader p {
+    opacity: 0.6;
+    margin-bottom: 30px;
+}
+
+.coinStatistics {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.statsInfo {
+    /* background-color: white; */
+    width: 400px;
+    padding-left: 10px;
+}
+
+.statsInfo>h3 {
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-semibold);
+    margin: 20px 0px;
+}
+
+.statsInfo>p {
+    font-size: var(--normal-font-size);
+    margin-bottom: 20px;
+}
+
+.statsTable {
+    width: 350px;
+    margin-left: 10px;
+    border-collapse: collapse;
+}
+
+.statsRow:hover, .infoRow:hover {
+    background-color: var(--hover);
+}
+
+.statsCell, .infoCell {
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0px;
+}
+
+.statsIcon {
+    padding: 10px;
+    opacity: 0.7;
+}
+
+.statsValue {
+    font-weight: var(--font-bold);
+}
+
+.coinInfo {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.infoDiv {
+    width: 45%;
+}
+
+.infoHead {
+    color: var(--text-secondary);
+}
+
+.infoDesc {
+    margin: 20px 0;
+}
+
+.infoTable {
+    width: 400px;
+    border-collapse: collapse;
+}
+
+.infoCell:nth-child(odd) {
+    text-align: left;
+    margin-right: 50px;
+}
+
+.infoLink {
+    color: var(--text-secondary);
+    font-weight: var(--font-semibold);
+}
+
+/* lineChart CSS */
+
+.chartInfo h1 {
+    color: var(--text-secondary);
+    margin: 20px 0;
+}
+
+.chartInfo p {
+    font-weight: var(--font-semibold);
+}
+
+@media screen and (max-width: 1000px) {
+    .coinStatistics {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .coinInfo {
+        flex-direction: column;
+        /* align-items: center; */
+    }
+
+    .infoDiv {
+        width: 100%;
+    }
+}

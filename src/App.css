@@ -1,0 +1,20 @@
+.main {
+    margin-left: 300px;
+    min-height: 100vh;
+    background-color: var(--bgPrimary);
+}
+
+.routes {
+    min-height: 80vh;
+    padding: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+    .main {
+        margin-left: 0px;
+    }
+
+    .routes {
+        width: 100vw;
+    }
+}
