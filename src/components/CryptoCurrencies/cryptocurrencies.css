@@ -93,9 +93,6 @@ hr {
 @media screen and (max-width: 700px) {
     .cryptoContainer {
         grid-template-columns: 1fr;
-    }
-
-    .cryptoCard {
-        margin: 0 35%;
+        place-items: center;
     }
 }
