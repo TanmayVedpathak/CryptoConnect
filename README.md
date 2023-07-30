@@ -1,3 +1,7 @@
+## Preview
+
+![Test Image 3](/screenshot/cryptoconnect-home.png)
+
 ## Get Started
 
 Go to [Rapidapi website](https://rapidapi.com/hub) to get different api's
