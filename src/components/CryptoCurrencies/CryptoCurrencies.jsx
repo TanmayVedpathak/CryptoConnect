@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from 'react-router-dom';
 import millify from "millify";
 import { Link } from "react-router-dom";
 import { Loader } from "../index";
@@ -7,6 +8,7 @@ import "./cryptocurrencies.css";
 import { useGetCryptosQuery } from "../../services/cryptoApi";
 
 const CryptoCurrencies = ({ simplified }) => {
+  const { pathname } = useLocation();
   const count = simplified ? 10 : 100;
   const { data: cryptoList, isFetching } = useGetCryptosQuery(count);
   const [cryptos, setCryptos] = useState([]);
@@ -22,6 +24,10 @@ const CryptoCurrencies = ({ simplified }) => {
 
     setCryptos(filteredData);
   }, [cryptoList, searchTerm]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   if (isFetching) return <Loader />;
 

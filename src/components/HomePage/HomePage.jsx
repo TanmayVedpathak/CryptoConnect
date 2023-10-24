@@ -1,4 +1,5 @@
-import React from "react";
+import { useEffect } from "react";
+import { useLocation } from 'react-router-dom';
 import { CryptoCurrencies, News, Loader } from "../index";
 import { Link } from "react-router-dom";
 import millify from "millify";
@@ -7,8 +8,13 @@ import { useGetCryptosQuery } from "../../services/cryptoApi";
 import "./homepage.css";
 
 const HomePage = () => {
+  const { pathname } = useLocation();
   const { data, isFetching } = useGetCryptosQuery(10);
   const globalStats = data?.data?.stats;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   if (isFetching) return <Loader />;
 

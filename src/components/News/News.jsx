@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from 'react-router-dom';
 import moment from "moment";
 import { Loader } from "../index";
 import "./news.css";
@@ -10,12 +11,17 @@ const demoImage =
   "https://www.bing.com/th?id=OVFT.mpzuVZnv8dwIMRfQGPbOPC&pid=News";
 
 const News = ({ simplified }) => {
+  const { pathname } = useLocation();
   const [newsCategory, setNewsCategory] = useState("Cryptocurrency");
   const { data } = useGetCryptosQuery(100);
   const { data: cryptoNews, isFetching } = useGetCryptoNewsQuery({
     newsCategory,
     count: simplified ? 6 : 10,
   });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   if (isFetching) return <Loader />;
 

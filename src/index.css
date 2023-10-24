@@ -29,6 +29,11 @@
     --font-bold: 600;
 }
 
+html, body {
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
 a {
     text-decoration: none;
 }

@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams, useLocation } from "react-router-dom";
 import millify from "millify";
 import {
   AiOutlineThunderbolt,
@@ -22,6 +22,7 @@ import {
 } from "../../services/cryptoApi";
 
 const CryptoDetails = () => {
+  const { pathname } = useLocation();
   const { coinId } = useParams();
   const [timePeriod, setTimePeriod] = useState("7d");
   const { data, isFetching } = useGetCryptoDetailsQuery(coinId);
@@ -49,17 +50,15 @@ const CryptoDetails = () => {
     },
     {
       title: "Market Cap",
-      value: `$ ${
-        cryptoDetails?.marketCap && millify(cryptoDetails?.marketCap)
-      }`,
+      value: `$ ${cryptoDetails?.marketCap && millify(cryptoDetails?.marketCap)
+        }`,
       icon: <HiOutlineCurrencyDollar />,
     },
     {
       title: "All-time-high(daily avg.)",
-      value: `$ ${
-        cryptoDetails?.allTimeHigh?.price &&
+      value: `$ ${cryptoDetails?.allTimeHigh?.price &&
         millify(cryptoDetails?.allTimeHigh?.price)
-      }`,
+        }`,
       icon: <AiOutlineTrophy />,
     },
   ];
@@ -86,20 +85,22 @@ const CryptoDetails = () => {
     },
     {
       title: "Total Supply",
-      value: `$ ${
-        cryptoDetails?.supply?.total && millify(cryptoDetails?.supply?.total)
-      }`,
+      value: `$ ${cryptoDetails?.supply?.total && millify(cryptoDetails?.supply?.total)
+        }`,
       icon: <AiOutlineInfoCircle />,
     },
     {
       title: "Circulating Supply",
-      value: `$ ${
-        cryptoDetails?.supply?.circulating &&
+      value: `$ ${cryptoDetails?.supply?.circulating &&
         millify(cryptoDetails?.supply?.circulating)
-      }`,
+        }`,
       icon: <AiOutlineInfoCircle />,
     },
   ];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   // console.log(cryptoDetails);
   return (

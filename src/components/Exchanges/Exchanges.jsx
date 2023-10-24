@@ -1,4 +1,5 @@
-import React from "react";
+import { useEffect } from "react";
+import { useLocation } from 'react-router-dom';
 import millify from "millify";
 import { Loader } from "../index";
 import "./exchanges.css";
@@ -6,8 +7,13 @@ import "./exchanges.css";
 import { useGetCryptosQuery } from "../../services/cryptoApi";
 
 const Exchanges = () => {
+  const { pathname } = useLocation();
   const { data, isFetching } = useGetCryptosQuery(100);
   const exchangeList = data?.data?.coins;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   if (isFetching) return <Loader />;
 
